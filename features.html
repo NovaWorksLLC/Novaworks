@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features - Tenant Receipts</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #0a1628 0%, #0f2542 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: rgba(10, 22, 40, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            border-bottom: 1px solid rgba(70, 144, 214, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            width: 52px;
+            height: 52px;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: -0.5px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 0.5rem;
+        }
+        
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #4690d6;
+            border-bottom-color: #4690d6;
+        }
+        
+        .cta-button {
+            background: #4690d6;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: background 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        
+        .cta-button:hover {
+            background: #3278b8;
+        }
+        
+        main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        
+        .hero {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+        
+        .hero-highlight {
+            color: #4690d6;
+            font-size: 2.5rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            color: #b0b0b0;
+            margin-bottom: 2rem;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .feature-card {
+            background: rgba(70, 144, 214, 0.08);
+            border: 1px solid rgba(70, 144, 214, 0.3);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .feature-card:hover {
+            background: rgba(70, 144, 214, 0.15);
+            border-color: rgba(70, 144, 214, 0.6);
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(70, 144, 214, 0.2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #4690d6;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.3rem;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-card p {
+            color: #b0b0b0;
+            font-size: 0.95rem;
+        }
+        
+        .highlights-section {
+            background: rgba(70, 144, 214, 0.1);
+            border: 1px solid rgba(70, 144, 214, 0.3);
+            border-radius: 16px;
+            padding: 3rem;
+            margin: 4rem 0;
+        }
+        
+        .highlights-section h2 {
+            font-size: 2rem;
+            color: #fff;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .highlight-item {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .highlight-icon {
+            color: #4690d6;
+            font-size: 1.5rem;
+            min-width: 30px;
+        }
+        
+        .highlight-content h4 {
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+        
+        .highlight-content p {
+            color: #b0b0b0;
+            font-size: 0.9rem;
+        }
+        
+        footer {
+            background: rgba(10, 22, 40, 0.8);
+            border-top: 1px solid rgba(70, 144, 214, 0.2);
+            padding: 2rem;
+            text-align: center;
+            color: #808080;
+            margin-top: 4rem;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-highlight {
+                font-size: 1.8rem;
+            }
+            
+            .nav-links {
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+    <a href="index.html" class="brand">
+        <img src="Resources/TR_logo.png"
+             alt="Tenant Receipts Logo"
+             class="logo-img">
+        <span class="logo-text">Tenant Receipts</span>
+    </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="features.html" class="active">Features</a></li>
+                <li><a href="how-it-works.html">How It Works</a></li>
+                <li><a href="your-rights.html">Your Rights</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+            <button class="cta-button">Download App</button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Powerful Features for <span class="hero-highlight">Tenant Protection</span></h1>
+            <p>Everything you need to document, organize, and protect your rights as a tenant</p>
+        </section>
+
+        <section class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">📋</div>
+                <h3>Create Requests & Reports</h3>
+                <p>Submit issues, request documentation, and track your communication with your landlord seamlessly.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">📸</div>
+                <h3>Capture & Store Evidence</h3>
+                <p>Take photos, add notes, and keep all your important evidence in one secure place with timestamps.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🛡️</div>
+                <h3>Know Your Rights</h3>
+                <p>Access clear, state-specific tenant rights information and helpful resources tailored to your location.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h3>Private & Secure</h3>
+                <p>All data is encrypted and stored locally on your device. You're always in control of your information.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">✅</div>
+                <h3>Evidence-Ready Records</h3>
+                <p>Organize your documentation in a format ready for legal proceedings or dispute resolution.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">📱</div>
+                <h3>Mobile & Desktop</h3>
+                <p>Access your receipts and records anytime, anywhere on any device. Stay organized on the go.</p>
+            </div>
+        </section>
+
+        <section class="highlights-section">
+            <h2>Why Choose Tenant Receipts?</h2>
+            <div class="highlights-grid">
+                <div class="highlight-item">
+                    <div class="highlight-icon">✓</div>
+                    <div class="highlight-content">
+                        <h4>Document. Organize. Protect.</h4>
+                        <p>A simple workflow designed specifically for tenants</p>
+                    </div>
+                </div>
+                
+                <div class="highlight-item">
+                    <div class="highlight-icon">✓</div>
+                    <div class="highlight-content">
+                        <h4>Built for You</h4>
+                        <p>Created by tenants, for tenants who want clarity and protection</p>
+                    </div>
+                </div>
+                
+                <div class="highlight-item">
+                    <div class="highlight-icon">✓</div>
+                    <div class="highlight-content">
+                        <h4>Always Available</h4>
+                        <p>Access your records whenever you need them, offline or online</p>
+                    </div>
+                </div>
+                
+                <div class="highlight-item">
+                    <div class="highlight-icon">✓</div>
+                    <div class="highlight-content">
+                        <h4>Peace of Mind</h4>
+                        <p>Know that your documentation is secure and evidence-ready</p>
+                    </div>
+                </div>
+                
+                <div class="highlight-item">
+                    <div class="highlight-icon">✓</div>
+                    <div class="highlight-content">
+                        <h4>State-Specific Info</h4>
+                        <p>Get accurate legal resources for your specific location</p>
+                    </div>
+                </div>
+                
+                <div class="highlight-item">
+                    <div class="highlight-icon">✓</div>
+                    <div class="highlight-content">
+                        <h4>Encrypted & Private</h4>
+                        <p>Your data stays with you. No cloud, no tracking, no surprises</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 Tenant Receipts. Built for Tenants. Backed by Your Right to a Safe, Habitable Home.</p>
+    </footer>
+</body>
+</html>

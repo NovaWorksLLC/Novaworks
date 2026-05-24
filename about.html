@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tenant Receipts | Nova Works LLC</title>
+  <title>About | Tenant Receipts</title>
   <style>
     :root {
       --bg-deep: #0a1628;
@@ -373,23 +373,156 @@
       .feature-grid { grid-template-columns: 1fr; }
       .tagline { font-size: .98rem; text-align: center; }
     }
-  </style>
+  
+
+    .page-hero {
+      padding: 82px 0 42px;
+      text-align: center;
+    }
+
+    .page-hero h1 {
+      max-width: 980px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .page-copy {
+      max-width: 790px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: clamp(1.08rem, 1.55vw, 1.28rem);
+    }
+
+    .section-panel {
+      border: 1px solid rgba(70, 144, 214, .24);
+      background: rgba(8, 40, 72, .45);
+      border-radius: 18px;
+      padding: clamp(24px, 4vw, 44px);
+      margin: 28px 0;
+      box-shadow: 0 22px 70px rgba(0,0,0,.18), inset 0 0 0 1px rgba(255,255,255,.025);
+    }
+
+    .split-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      align-items: stretch;
+      padding-bottom: 44px;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      padding-bottom: 44px;
+    }
+
+    .info-card, .step-card, .resource-card {
+      border: 1px solid rgba(70, 144, 214, .28);
+      background: rgba(18, 43, 66, .76);
+      border-radius: 14px;
+      padding: 26px;
+      transition: .2s ease;
+    }
+
+    .info-card:hover, .step-card:hover, .resource-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(74, 176, 255, .55);
+      background: rgba(18, 55, 88, .78);
+    }
+
+    .card-icon {
+      width: 58px;
+      height: 58px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: rgba(38, 132, 221, .36);
+      color: var(--white);
+      font-size: 1.65rem;
+      margin-bottom: 18px;
+    }
+
+    .step-number {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: var(--white);
+      background: linear-gradient(135deg, #4ab0ff, #318be6);
+      font-weight: 900;
+      margin-bottom: 18px;
+    }
+
+    .info-card h2, .info-card h3, .step-card h3, .resource-card h3, .section-panel h2 {
+      color: var(--white);
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+
+    .info-card p, .step-card p, .resource-card p, .section-panel p, .section-panel li {
+      color: #c3cfdd;
+    }
+
+    .clean-list {
+      list-style: none;
+      display: grid;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .clean-list li {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 12px;
+      align-items: start;
+    }
+
+    .check { color: var(--blue-bright); font-weight: 900; }
+
+    .notice-box {
+      border: 1px solid rgba(255, 201, 40, .35);
+      background: rgba(255, 201, 40, .08);
+      color: #f8e8a8;
+      border-radius: 14px;
+      padding: 18px 20px;
+      margin-top: 20px;
+    }
+
+    .wide-cta {
+      margin: 20px 0 54px;
+      text-align: center;
+      border: 1px solid rgba(70,144,214,.26);
+      border-radius: 18px;
+      padding: 36px 24px;
+      background: linear-gradient(135deg, rgba(9,44,78,.75), rgba(6,24,44,.68));
+    }
+
+    .wide-cta h2 { color: var(--white); margin-bottom: 10px; }
+    .wide-cta p { color: var(--muted); margin-bottom: 24px; }
+
+    @media (max-width: 980px) {
+      .split-grid, .content-grid { grid-template-columns: 1fr; }
+      .page-hero { padding-top: 52px; }
+    }
+</style>
 </head>
 <body>
   <header>
     <nav aria-label="Primary navigation">
-      <a class="brand" href="#" aria-label="Tenant Receipts home">
+      <a class="brand" href="index.html" aria-label="Tenant Receipts home">
         <img src="Resources\TR_logo.png" alt="Tenant Receipts Logo" class="logo" width="60" height="60" >
         <span>Tenant Receipts</span>
       </a>
 
       <ul class="nav-links">
-        <li><a class="active" href="index.html">Home</a></li>
+        <li><a href="index.html">Home</a></li>
         <li><a href="features.html">Features</a></li>
         <li><a href="how-it-works.html">How It Works</a></li>
         <li><a href="your-rights.html">Your Rights</a></li>
         <li><a href="resources.html">Resources</a></li>
-        <li><a href="about.html">About</a></li>
+        <li><a class="active" href="about.html">About</a></li>
       </ul>
 
       <a class="btn btn-primary nav-cta" href="#download">Download App</a>
@@ -397,90 +530,24 @@
   </header>
 
   <main>
-    <section class="hero">
-      <div class="hero-content">
-        <div class="eyebrow">
-          <span>🛡</span>
-          <span>Document. Organize. Protect.</span>
-        </div>
-
-        <h1>
-          Tenant Receipts
-          <span class="gradient-text">When It’s Documented,<br>It’s Defensible.</span>
-        </h1>
-
-        <p class="hero-copy">
-          Create requests and reports, capture evidence, and store your records securely.
-          Built for tenants who want clarity and protection.
-        </p>
-
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#download">▯ Download App</a>
-          <a class="btn btn-secondary" href="#features">Learn More</a>
-        </div>
-
-        <div class="trust-row" aria-label="Key benefits">
-          <div class="trust-item">
-            <svg viewBox="0 0 48 48" fill="none"><path d="M14 21v-5c0-5.5 4-10 10-10s10 4.5 10 10v5" stroke="currentColor" stroke-width="3"/><rect x="9" y="21" width="30" height="22" rx="4" stroke="currentColor" stroke-width="3"/><path d="M24 30v6" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
-            <p><strong>Private & Secure</strong><span>Your data stays on your device.</span></p>
-          </div>
-          <div class="trust-item">
-            <svg viewBox="0 0 48 48" fill="none"><path d="M10 6h20l8 8v28H10V6Z" stroke="currentColor" stroke-width="3"/><path d="M29 6v9h9" stroke="currentColor" stroke-width="3"/><path d="M18 27h12M18 34h8" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
-            <p><strong>Evidence-Ready</strong><span>Organized records you can rely on.</span></p>
-          </div>
-          <div class="trust-item">
-            <svg viewBox="0 0 48 48" fill="none"><path d="M24 4 40 11v12c0 10.5-6.3 17.8-16 22C14.3 40.8 8 33.5 8 23V11l16-7Z" stroke="currentColor" stroke-width="3"/><path d="m17 24 5 5 10-11" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <p><strong>Know Your Rights</strong><span>Helpful resources for tenants.</span></p>
-          </div>
-        </div>
-      </div>
-
-      <div class="mockups" aria-label="App screen previews">
-        <article class="phone large">
-          <div class="notch"></div><div class="status">9:41</div><div class="mini-icons">◔ ▰</div>
-          <div class="screen">
-            <div class="app-top"><span>🛡 Tenant Receipts</span><span>⚙</span></div>
-            <div class="app-card">
-              <div class="app-title">Your Tenant Records<br>Are Secure and Evidence-Ready.</div>
-              <div class="app-button"><span class="icon">📋</span><span>Request / Report</span></div>
-              <div class="app-button"><span class="icon">📷</span><span>Capture Evidence</span></div>
-              <div class="app-button"><span class="icon">⚖</span><span>Legal Resources</span></div>
-              <div class="app-button warning"><span class="icon">⚠</span><span>1 active item(s) currently on file.</span></div>
-              <div class="app-button completed"><span class="icon">🏛</span><span>Completed: 6</span></div>
-              <p class="disclaimer">LEGAL DISCLAIMER: This app does not provide legal advice. It only helps you organize information and draft letters.</p>
-              <div class="phone-line"></div>
-            </div>
-          </div>
-          <div class="home-indicator"></div>
-        </article>
-
-        <article class="phone small">
-          <div class="notch"></div><div class="status">9:41</div><div class="mini-icons">◔ ▰</div>
-          <div class="screen">
-            <div class="app-top"><span>🛡 Requests / Reports</span></div>
-            <div class="app-card">
-              <div class="app-title">Create a New Request/Report</div>
-              <div class="app-button"><span class="icon">🛠</span><span>Submit Issue</span></div>
-              <div class="app-button"><span class="icon">📋</span><span>Documentation Request</span></div>
-              <div class="app-button"><span class="icon">🚚</span><span>Move-In Report</span></div>
-              <div class="app-button"><span class="icon">🚛</span><span>Move-Out Report</span></div>
-              <p class="disclaimer">LEGAL DISCLAIMER: This app does not provide legal advice. It only helps you organize information and draft letters.</p>
-              <div class="phone-line"></div>
-            </div>
-          </div>
-          <div class="home-indicator"></div>
-        </article>
-      </div>
+    <section class="page-hero">
+      <div class="eyebrow"><span>🏢</span><span>Nova Works LLC</span></div>
+      <h1>Built for Tenants Who Need <span class="gradient-text"; style="padding-bottom: 20px;">Clearer Records and Better Organization.</span></h1><br>
+      <p class="page-copy">Tenant Receipts is developed by Nova Works LLC as a practical documentation tool for renters who want a more professional way to track issues, reports, evidence, and communication.</p>
     </section>
 
-    <section class="feature-grid" id="features" aria-label="Features">
-      <article class="feature-card"><div class="round-icon">📋</div><h3>Create Requests & Reports</h3><p>Submit issues, request documentation, and track your communication with your landlord.</p></article>
-      <article class="feature-card"><div class="round-icon">📷</div><h3>Capture & Store Evidence</h3><p>Take photos, add notes, and keep all your important evidence in one secure place.</p></article>
-      <article class="feature-card"><div class="round-icon">🛡</div><h3>Know Your Rights</h3><p>Access clear, state-specific tenant rights information and helpful resources.</p></article>
-      <article class="feature-card"><div class="round-icon">🔒</div><h3>Private & Secure</h3><p>All data is stored locally on your device. You’re in control, always.</p></article>
+    <section class="split-grid">
+      <article class="section-panel"><h2>What We Build</h2><p>Nova Works LLC focuses on practical tools that make complicated real-world processes easier to manage. Tenant Receipts is built around structured records, local-first storage, and a clean tenant-focused workflow.</p><ul class="clean-list"><li><span class="check">✓</span><span>Document issues and requests.</span></li><li><span class="check">✓</span><span>Capture and organize evidence.</span></li><li><span class="check">✓</span><span>Keep active and completed records separated.</span></li></ul></article>
+      <article class="section-panel"><h2>Our Position</h2><p>The app is not a legal service and does not replace an attorney. Its purpose is narrower and stronger: help tenants create clearer documentation so the facts are easier to preserve, review, and share when needed.</p><div class="notice-box">When it is documented, it is easier to explain. That is the core idea behind Tenant Receipts.</div></article>
     </section>
 
-    <div class="tagline">🛡 Built for Tenants. Backed by Your Right to a Safe, Habitable Home.</div>
+    <section class="content-grid">
+      <article class="info-card"><div class="card-icon">🛡</div><h3>Trustworthy</h3><p>A professional design with clear disclaimers and responsible language.</p></article>
+      <article class="info-card"><div class="card-icon">📱</div><h3>Mobile First</h3><p>Built around the way tenants actually document problems: from their phone.</p></article>
+      <article class="info-card"><div class="card-icon">🔒</div><h3>Local First</h3><p>Designed so users stay in control of the information they enter.</p></article>
+    </section>
+
+    <section class="wide-cta"><h2>Tenant Receipts by Nova Works LLC</h2><p>Simple, professional documentation for renters.</p><a class="btn btn-primary" href="index.html">Back to Home</a></section>
   </main>
 
   <footer>
