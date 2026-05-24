@@ -542,6 +542,20 @@
       .split-grid, .content-grid { grid-template-columns: 1fr; }
       .page-hero { padding-top: 52px; }
     }
+    .coming-soon-btn {
+    flex-direction: column;
+    gap: 2px;
+    min-height: 64px;
+    line-height: 1.1;
+}
+
+.coming-soon-btn small {
+    font-size: 0.72rem;
+    opacity: 0.85;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
 </style>
 </head>
 <body>
@@ -561,7 +575,12 @@
         <li><a href="about.html">About</a></li>
       </ul>
 
-      <a class="btn btn-primary nav-cta" href="#download">Download App</a>
+        <a href="#"
+            class="btn btn-primary coming-soon-btn"
+            onclick="return false;">
+            <span>Download App</span>
+            <small>Coming Soon</small>
+        </a>
     </nav>
   </header>
 
