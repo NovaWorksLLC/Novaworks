@@ -11,23 +11,37 @@ margin-right: 20px;
 header {
 background-color: #003366;
 }
-h1 {
-color: white;
-text-align: center;
-border-style: solid;
-border-color: white;
-border-width: 2px;
-border-radius: 10px;
-padding-left: 10px;
-padding-right: 10px;
-margin-left: 20px;
-margin-right: 20px;
+.Headercontainer {
+display: flex;
+align-items: center;
+justify-content: left;
 font-family: verdana;
+font-size: 15px;
+color: white;
+text-align: left;
+border-radius: 10px;
+border-bottom-left-radius: 0;
+border-bottom-right-radius: 0;
+background-color: #000039;
+border-bottom: 2px solid #4682b4;
+padding: 5px;
 }
 
-p {
+.button {
+background-color: #000039;
+color: white;
+border: none;
+border-radius: 5px;
+padding: 10px 20px;
+font-family: verdana;
+font-size: 15px;
+cursor: pointer;
+}
+.content {
 font-family: verdana;
 font-size: 20px;
 color: white;
-text-align: center;
+text-align: left;
+border-radius: 10px;
+padding: 5px;
 }
