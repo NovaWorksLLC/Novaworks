@@ -344,13 +344,48 @@
       padding: 8px 0 42px;
     }
 
-    footer {
-      border-top: 1px solid rgba(70, 144, 214, .18);
-      text-align: center;
-      padding: 28px 18px;
-      color: #8ea3b9;
-      background: rgba(7, 18, 34, .55);
-    }
+        footer {
+            border-top: 1px solid rgba(70, 144, 214, .18);
+            text-align: center;
+            padding: 28px 18px;
+            color: #8ea3b9;
+            background: rgba(7, 18, 34, .55);
+            }
+                
+                .footer-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .footer-social-icon {
+            width: 34px ;
+            height: 34px ;
+            max-width: 34px ;
+            max-height: 34px ;
+            min-width: 34px ;
+            min-height: 34px ;
+            object-fit: contain;
+            display: block;
+            transition: transform 0.25s ease,
+                        opacity 0.25s ease;
+        }
+
+        .footer-social-icon:hover {
+            transform: scale(1.1);
+            opacity: 0.85;
+        }
+
+        .social-link {
+            display: inline-flex;
+            width: 34px;
+            height: 34px;
+            overflow: hidden;
+            align-items: center;
+            justify-content: center;
+        }
 
     @media (max-width: 1120px) {
       .nav-links { display: none; }
@@ -551,7 +586,18 @@
   </main>
 
   <footer>
-    <p>© 2026 Nova Works LLC. Tenant Receipts does not provide legal advice.</p>
-  </footer>
+    <div class="footer-content">
+        <p>
+            © 2026 Nova Works LLC. Tenant Receipts does not provide legal advice. 
+        </p>
+        <a href="https://www.facebook.com/profile.php?id=61586007257035"
+           target="_blank"
+           class="social-link">
+            <img src="Resources/fb_logo.png"
+                 alt="Facebook"
+                 class="footer-social-icon">
+        </a>
+    </div>
+</footer>
 </body>
 </html>
