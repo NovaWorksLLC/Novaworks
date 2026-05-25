@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tenant Receipts | Nova Works LLC</title>
+  <title>Nova Works LLC | Practical Digital Tools</title>
+
   <style>
     :root {
       --bg-deep: #0a1628;
@@ -22,18 +23,41 @@
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
+body::before {
+  content: "";
 
-    body {
-      min-height: 100vh;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-      color: var(--soft);
-      background:
-        radial-gradient(circle at 68% 22%, rgba(70,144,214,.28), transparent 28%),
-        radial-gradient(circle at 15% 62%, rgba(42,122,194,.15), transparent 30%),
-        linear-gradient(135deg, #071222 0%, #08264a 52%, #063763 100%);
-      line-height: 1.55;
-      overflow-x: hidden;
-    }
+  position: fixed;
+
+  inset: 0;
+
+  background-image: url("Resources/NW_Logo_TRP.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 900px;
+
+  opacity: 0.08;
+
+  pointer-events: none;
+
+  z-index: -1;
+}
+body {
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+               Oxygen, Ubuntu, Cantarell, sans-serif;
+
+  color: var(--soft);
+
+  background:
+    radial-gradient(circle at 68% 22%, rgba(70,144,214,.28), transparent 28%),
+    radial-gradient(circle at 15% 62%, rgba(42,122,194,.15), transparent 30%),
+    linear-gradient(135deg, #071222 0%, #08264a 52%, #063763 100%);
+
+  line-height: 1.55;
+  overflow-x: hidden;
+  position: relative;
+}
+
 
     a { color: inherit; text-decoration: none; }
 
@@ -66,7 +90,17 @@
       white-space: nowrap;
     }
 
-    .brand svg { width: 48px; height: 48px; }
+    .brand-mark {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #4ab0ff, #318be6);
+      box-shadow: 0 16px 32px rgba(42, 140, 231, .22);
+      font-weight: 900;
+      letter-spacing: -0.08em;
+    }
 
     .nav-links {
       display: flex;
@@ -123,7 +157,7 @@
     }
 
     .hero {
-      min-height: 650px;
+      min-height: 690px;
       display: grid;
       grid-template-columns: 1.02fr .98fr;
       gap: 46px;
@@ -162,10 +196,11 @@
       background-clip: text;
       -webkit-background-clip: text;
       color: transparent;
+      padding-bottom: 10px;
     }
 
     .hero-copy {
-      max-width: 620px;
+      max-width: 650px;
       color: var(--muted);
       font-size: clamp(1.1rem, 1.8vw, 1.35rem);
       margin-bottom: 34px;
@@ -182,7 +217,7 @@
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 28px;
-      max-width: 650px;
+      max-width: 690px;
     }
 
     .trust-item {
@@ -192,363 +227,543 @@
       align-items: start;
     }
 
-    .trust-item svg { width: 38px; height: 38px; color: var(--blue-bright); }
+    .trust-icon {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      color: var(--white);
+      background: rgba(38, 132, 221, .36);
+      font-size: 1.15rem;
+    }
+
     .trust-item strong { display: block; color: var(--white); margin-bottom: 4px; }
     .trust-item span { color: var(--muted); font-size: .96rem; }
 
-    .mockups {
+    .showcase {
       position: relative;
       min-height: 560px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      display: grid;
+      place-items: center;
     }
 
-    .phone {
+    .showcase-panel {
+      width: min(520px, 100%);
+      border: 1px solid rgba(70,144,214,.28);
+      border-radius: 28px;
+      padding: 28px;
+      background: linear-gradient(180deg, rgba(18,43,66,.82), rgba(7,24,44,.74));
+      box-shadow: 0 28px 90px rgba(0,0,0,.32), inset 0 0 0 1px rgba(255,255,255,.03);
       position: relative;
-      width: 315px;
-      min-height: 620px;
-      border: 8px solid #12151b;
-      border-radius: 43px;
-      background: linear-gradient(180deg, #072949 0%, #061d37 100%);
-      box-shadow: 0 24px 80px rgba(0, 0, 0, .45), inset 0 0 0 1px rgba(255,255,255,.15);
       overflow: hidden;
     }
 
-    .phone.large { transform: translateX(-22px); z-index: 2; }
-    .phone.small { width: 275px; min-height: 565px; transform: translateX(-54px) translateY(34px); z-index: 1; }
-
-    .notch {
+    .showcase-panel::before {
+      content: "";
       position: absolute;
-      top: 12px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 110px;
-      height: 27px;
-      border-radius: 0 0 18px 18px;
-      background: #070b12;
-      z-index: 2;
+      inset: -80px -80px auto auto;
+      width: 210px;
+      height: 210px;
+      border-radius: 50%;
+      background: rgba(74,176,255,.18);
+      filter: blur(6px);
     }
 
-    .screen { padding: 56px 24px 24px; }
-    .phone.small .screen { padding: 54px 18px 20px; }
-
-    .status { position: absolute; top: 18px; left: 24px; color: #fff; font-size: .8rem; font-weight: 700; }
-    .mini-icons { position: absolute; top: 18px; right: 24px; color: #fff; font-size: .78rem; opacity: .9; }
-
-    .app-top {
+    .panel-top {
       display: flex;
+      align-items: center;
       justify-content: space-between;
-      align-items: center;
-      padding-bottom: 16px;
+      gap: 18px;
+      padding-bottom: 22px;
       border-bottom: 1px solid rgba(70,144,214,.22);
-      margin-bottom: 16px;
+      margin-bottom: 22px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .panel-title {
       color: var(--white);
+      font-weight: 850;
+      font-size: 1.1rem;
+    }
+
+    .status-pill {
+      border: 1px solid rgba(57,209,124,.42);
+      background: rgba(57,209,124,.1);
+      color: #adffd0;
+      border-radius: 999px;
+      padding: 7px 12px;
+      font-size: .78rem;
       font-weight: 800;
-      font-size: .9rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      white-space: nowrap;
     }
 
-    .app-card {
-      border: 1px solid rgba(70,144,214,.26);
-      border-radius: 22px;
-      padding: 18px 14px;
-      background: rgba(2, 24, 46, .58);
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,.025);
-    }
-
-    .app-title {
-      color: var(--white);
-      text-align: center;
-      line-height: 1.35;
-      font-size: 1rem;
-      margin: 4px 0 15px;
-      font-weight: 800;
-    }
-
-    .app-button {
-      min-height: 48px;
-      border-radius: 8px;
-      border: 1px solid rgba(86, 162, 229, .44);
-      background: rgba(20, 45, 67, .86);
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      padding: 0 14px;
-      color: var(--white);
-      font-size: .82rem;
-      font-weight: 800;
-      margin-bottom: 10px;
-    }
-
-    .phone.small .app-button { min-height: 50px; font-size: .77rem; }
-    .app-button .icon { width: 28px; text-align: center; font-size: 1.2rem; color: #fff; }
-    .warning .icon { color: var(--gold); }
-    .completed .icon { color: var(--green); }
-
-    .disclaimer {
-      color: #aab8ca;
-      text-align: center;
-      font-size: .66rem;
-      line-height: 1.3;
-      margin: 17px auto 20px;
-      max-width: 235px;
-    }
-
-    .phone-line { height: 1px; background: rgba(220,233,248,.55); margin: 0 10px; }
-    .home-indicator { position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); width: 94px; height: 4px; border-radius: 999px; background: rgba(220,233,248,.58); }
-
-    .feature-grid {
+    .product-preview {
+      position: relative;
+      z-index: 1;
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 16px;
-      padding: 10px 0 26px;
     }
 
-    .feature-card {
-      min-height: 168px;
+    .product-card {
+      border: 1px solid rgba(70,144,214,.26);
+      border-radius: 18px;
+      padding: 20px;
+      background: rgba(2,24,46,.48);
+    }
+
+    .product-card h3 {
+      color: var(--white);
+      margin-bottom: 8px;
+      font-size: 1.25rem;
+    }
+
+    .product-card p {
+      color: #c3cfdd;
+      margin-bottom: 18px;
+    }
+
+    .mini-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .mini-stat {
+      border: 1px solid rgba(70,144,214,.18);
+      border-radius: 14px;
+      padding: 14px;
+      background: rgba(8,40,72,.45);
+      text-align: center;
+    }
+
+    .mini-stat strong {
+      display: block;
+      color: var(--white);
+      font-size: 1.25rem;
+      margin-bottom: 2px;
+    }
+
+    .mini-stat span {
+      color: var(--muted);
+      font-size: .78rem;
+    }
+
+    .section-head {
+      text-align: center;
+      padding: 68px 0 32px;
+    }
+
+    .section-head h2 {
+      color: var(--white);
+      font-size: clamp(2.1rem, 4vw, 3.2rem);
+      line-height: 1.08;
+      letter-spacing: -.04em;
+      margin-bottom: 16px;
+    }
+
+    .section-head p {
+      max-width: 760px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 1.12rem;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 22px;
+      padding-bottom: 60px;
+    }
+
+    .app-card,
+    .coming-card {
       border: 1px solid rgba(70, 144, 214, .24);
       background: rgba(8, 40, 72, .45);
-      border-radius: 12px;
-      padding: 28px 24px;
+      border-radius: 18px;
+      padding: 34px;
       transition: .2s ease;
+      min-height: 315px;
     }
 
-    .feature-card:hover {
+    .app-card:hover,
+    .coming-card:hover {
       transform: translateY(-4px);
       border-color: rgba(74, 176, 255, .52);
       background: rgba(12, 53, 92, .6);
     }
 
-    .feature-card .round-icon {
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
+    .card-icon {
+      width: 68px;
+      height: 68px;
+      border-radius: 18px;
       display: grid;
       place-items: center;
-      background: rgba(38, 132, 221, .42);
-      color: #fff;
-      font-size: 1.7rem;
-      margin-bottom: 18px;
+      background: rgba(38, 132, 221, .36);
+      color: var(--white);
+      font-size: 1.9rem;
+      margin-bottom: 22px;
     }
 
-    .feature-card h3 { color: var(--white); font-size: 1.05rem; margin-bottom: 8px; }
-    .feature-card p { color: #c3cfdd; font-size: .95rem; }
+    .app-card h3,
+    .coming-card h3 {
+      color: var(--white);
+      font-size: 1.55rem;
+      margin-bottom: 14px;
+    }
 
-    .tagline {
+    .app-card p,
+    .coming-card p {
+      color: #c3cfdd;
+      font-size: 1rem;
+      margin-bottom: 24px;
+      max-width: 720px;
+    }
+
+    .tag-list {
       display: flex;
-      align-items: center;
-      justify-content: center;
+      flex-wrap: wrap;
       gap: 10px;
-      color: #c8d4e3;
-      font-size: 1.15rem;
-      padding: 8px 0 42px;
+      margin-bottom: 26px;
+    }
+
+    .tag {
+      border: 1px solid rgba(70,144,214,.28);
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: rgba(10,35,62,.48);
+      color: #dce9f8;
+      font-size: .88rem;
+      font-weight: 650;
+    }
+
+    .principles-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      padding-bottom: 54px;
+    }
+
+    .principle-card {
+      border: 1px solid rgba(70, 144, 214, .24);
+      background: rgba(8, 40, 72, .45);
+      border-radius: 18px;
+      padding: 28px;
+    }
+
+    .principle-card h3 {
+      color: var(--white);
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+
+    .principle-card p { color: var(--muted); }
+
+    .wide-cta {
+      margin: 20px 0 54px;
+      text-align: center;
+      border: 1px solid rgba(70,144,214,.26);
+      border-radius: 18px;
+      padding: 40px 24px;
+      background: linear-gradient(135deg, rgba(9,44,78,.75), rgba(6,24,44,.68));
+    }
+
+    .wide-cta h2 {
+      color: var(--white);
+      margin-bottom: 10px;
+      font-size: 2rem;
+    }
+
+    .wide-cta p {
+      color: var(--muted);
+      margin-bottom: 24px;
     }
 
     footer {
-        border-top: 1px solid rgba(70, 144, 214, .18);
-        text-align: center;
-        padding: 28px 18px;
-        color: #8ea3b9;
-        background: rgba(7, 18, 34, .55);
-        }
-            
-            .footer-content {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 18px;
-        flex-wrap: wrap;
+      border-top: 1px solid rgba(70, 144, 214, .18);
+      text-align: center;
+      padding: 28px 18px;
+      color: #8ea3b9;
+      background: rgba(7, 18, 34, .55);
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
     }
 
     .footer-social-icon {
-        width: 34px ;
-        height: 34px ;
-        max-width: 34px ;
-        max-height: 34px ;
-        min-width: 34px ;
-        min-height: 34px ;
-        object-fit: contain;
-        display: block;
-        transition: transform 0.25s ease,
-                    opacity 0.25s ease;
+      width: 34px;
+      height: 34px;
+      max-width: 34px;
+      max-height: 34px;
+      min-width: 34px;
+      min-height: 34px;
+      object-fit: contain;
+      display: block;
+      transition: transform 0.25s ease, opacity 0.25s ease;
     }
 
     .footer-social-icon:hover {
-        transform: scale(1.1);
-        opacity: 0.85;
+      transform: scale(1.1);
+      opacity: 0.85;
     }
 
     .social-link {
-        display: inline-flex;
-        width: 34px;
-        height: 34px;
-        overflow: hidden;
-        align-items: center;
-        justify-content: center;
+      display: inline-flex;
+      width: 34px;
+      height: 34px;
+      overflow: hidden;
+      align-items: center;
+      justify-content: center;
     }
+
     @media (max-width: 1120px) {
       .nav-links { display: none; }
-      .hero { grid-template-columns: 1fr; }
-      .mockups { min-height: 520px; justify-content: flex-start; padding-left: 22px; }
-      .feature-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .hero,
+      .product-grid { grid-template-columns: 1fr; }
+      .showcase { min-height: auto; padding-bottom: 42px; }
+      .principles-grid { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 720px) {
-      nav, main { width: min(100% - 28px, 1440px); }
+      nav,
+      main { width: min(100% - 28px, 1440px); }
       nav { height: 78px; }
       .brand { font-size: 1.1rem; }
-      .brand svg { width: 40px; height: 40px; }
+      .brand-mark { width: 42px; height: 42px; }
       .nav-cta { display: none; }
-      .hero { padding-top: 32px; }
-      .trust-row { grid-template-columns: 1fr; }
-      .mockups { min-height: auto; padding-left: 0; justify-content: center; }
-      .phone.large { transform: none; width: min(315px, 92vw); }
-      .phone.small { display: none; }
-      .feature-grid { grid-template-columns: 1fr; }
-      .tagline { font-size: .98rem; text-align: center; }
+      .hero { min-height: auto; padding-top: 42px; }
+      .hero-actions { flex-direction: column; }
+      .btn { width: 100%; }
+      .trust-row,
+      .mini-row { grid-template-columns: 1fr; }
+      .showcase-panel,
+      .app-card,
+      .coming-card { padding: 24px; }
     }
-    .coming-soon-btn {
-    flex-direction: column;
-    gap: 2px;
-    min-height: 64px;
-    line-height: 1.1;
-}
-
-.coming-soon-btn small {
-    font-size: 0.72rem;
-    opacity: 0.85;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-}
   </style>
 </head>
+
 <body>
-  <header>
-    <nav aria-label="Primary navigation">
-      <a class="brand" href="#" aria-label="Tenant Receipts home">
-        <img src="Resources\TR_logo.png" alt="Tenant Receipts Logo" class="logo" width="60" height="60" >
-        <span>Tenant Receipts</span>
-      </a>
 
-      <ul class="nav-links">
-        <li><a class="active" href="index.html">Home</a></li>
-        <li><a href="features.html">Features</a></li>
-        <li><a href="how-it-works.html">How It Works</a></li>
-        <li><a href="your-rights.html">Your Rights</a></li>
-        <li><a href="resources.html">Resources</a></li>
-        <li><a href="about.html">About</a></li>
-      </ul>
-            
-      <a href="#"
-        class="btn btn-primary coming-soon-btn"
-        onclick="return false;">
-          <span>Download App</span>
-          <small>Coming Soon</small>
-      </a>
-    </nav>
-  </header>
+<header>
+  <nav aria-label="Primary navigation">
+    <a class="brand" href="index.html" aria-label="Nova Works LLC home">
+        <img src="Resources\NW_Logo_TRP.png" alt="Tenant Receipts Logo" class="logo" width="80" height="80" >
+      <span>Nova Works LLC</span>
+    </a>
 
-  <main>
-    <section class="hero">
-      <div class="hero-content">
-        <div class="eyebrow">
-          <span>🛡</span>
-          <span>Document. Organize. Protect.</span>
+    <ul class="nav-links">
+      <li><a class="active" href="index.html">Home</a></li>
+      <!-- <li><a href="#products">Products</a></li>
+      <li><a href="#approach">Approach</a></li> -->
+      <li><a href="tenant-receipts.html">Tenant Receipts</a></li>
+      <!-- <li><a href="about.html">About</a></li> -->
+    </ul>
+
+    <a class="btn btn-primary nav-cta" href="tenant-receipts.html">View Tenant Receipts</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div>
+      <div class="eyebrow">
+        <span>⚙️</span>
+        <span>Practical Digital Tools</span>
+      </div>
+
+      <h1>
+        Nova Works LLC
+        <span class="gradient-text">Practical Tools. <br> Real-World Impact.</span>
+      </h1>
+
+      <p class="hero-copy">
+        Nova Works LLC creates focused applications and practical tools designed
+        to make your life easier, not more complicated. Start with Tenant Receipts, a mobile app for renters.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="tenant-receipts.html">View Tenant Receipts</a>
+        <a class="btn btn-secondary" href="#products">Explore Products</a>
+      </div>
+
+      <div class="trust-row">
+        <div class="trust-item">
+          <div class="trust-icon">📱</div>
+          <div>
+            <strong>Mobile First</strong>
+            <span>Built around practical daily use.</span>
+          </div>
         </div>
 
-        <h1>
-          Tenant Receipts
-          <span class="gradient-text">When It’s Documented,<br>It’s Defensible.</span>
-        </h1>
-
-        <p class="hero-copy">
-          Create requests and reports, capture evidence, and store your records securely.
-          Built for tenants who want clarity and protection.
-        </p>
-
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#download">▯ Download App</a>
-          <a class="btn btn-secondary" href="features.html">Learn More</a>
+        <div class="trust-item">
+          <div class="trust-icon">🧩</div>
+          <div>
+            <strong>Focused Tools</strong>
+            <span>Simple apps with clear purpose.</span>
+          </div>
         </div>
 
-        <div class="trust-row" aria-label="Key benefits">
-          <div class="trust-item">
-            <svg viewBox="0 0 48 48" fill="none"><path d="M14 21v-5c0-5.5 4-10 10-10s10 4.5 10 10v5" stroke="currentColor" stroke-width="3"/><rect x="9" y="21" width="30" height="22" rx="4" stroke="currentColor" stroke-width="3"/><path d="M24 30v6" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
-            <p><strong>Private & Secure</strong><span>Your data stays on your device.</span></p>
-          </div>
-          <div class="trust-item">
-            <svg viewBox="0 0 48 48" fill="none"><path d="M10 6h20l8 8v28H10V6Z" stroke="currentColor" stroke-width="3"/><path d="M29 6v9h9" stroke="currentColor" stroke-width="3"/><path d="M18 27h12M18 34h8" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
-            <p><strong>Evidence-Ready</strong><span>Organized records you can rely on.</span></p>
-          </div>
-          <div class="trust-item">
-            <svg viewBox="0 0 48 48" fill="none"><path d="M24 4 40 11v12c0 10.5-6.3 17.8-16 22C14.3 40.8 8 33.5 8 23V11l16-7Z" stroke="currentColor" stroke-width="3"/><path d="m17 24 5 5 10-11" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <p><strong>Know Your Rights</strong><span>Helpful resources for tenants.</span></p>
+        <div class="trust-item">
+          <div class="trust-icon">🔒</div>
+          <div>
+            <strong>User Control</strong>
+            <span>Designed with privacy in mind.</span>
           </div>
         </div>
       </div>
-
-      <div class="mockups" aria-label="App screen previews">
-        <article class="phone large">
-          <div class="notch"></div><div class="status">9:41</div><div class="mini-icons">◔ ▰</div>
-          <div class="screen">
-            <div class="app-top"><span>🛡 Tenant Receipts</span><span>⚙</span></div>
-            <div class="app-card">
-              <div class="app-title">Your Tenant Records<br>Are Secure and Evidence-Ready.</div>
-              <div class="app-button"><span class="icon">📋</span><span>Request / Report</span></div>
-              <div class="app-button"><span class="icon">📷</span><span>Capture Evidence</span></div>
-              <div class="app-button"><span class="icon">⚖</span><span>Legal Resources</span></div>
-              <div class="app-button warning"><span class="icon">⚠</span><span>1 active item(s) currently on file.</span></div>
-              <div class="app-button completed"><span class="icon">🏛</span><span>Completed: 6</span></div>
-              <p class="disclaimer">LEGAL DISCLAIMER: This app does not provide legal advice. It only helps you organize information and draft letters.</p>
-              <div class="phone-line"></div>
-            </div>
-          </div>
-          <div class="home-indicator"></div>
-        </article>
-
-        <article class="phone small">
-          <div class="notch"></div><div class="status">9:41</div><div class="mini-icons">◔ ▰</div>
-          <div class="screen">
-            <div class="app-top"><span>🛡 Requests / Reports</span></div>
-            <div class="app-card">
-              <div class="app-title">Create a New Request/Report</div>
-              <div class="app-button"><span class="icon">🛠</span><span>Submit Issue</span></div>
-              <div class="app-button"><span class="icon">📋</span><span>Documentation Request</span></div>
-              <div class="app-button"><span class="icon">🚚</span><span>Move-In Report</span></div>
-              <div class="app-button"><span class="icon">🚛</span><span>Move-Out Report</span></div>
-              <p class="disclaimer">LEGAL DISCLAIMER: This app does not provide legal advice. It only helps you organize information and draft letters.</p>
-              <div class="phone-line"></div>
-            </div>
-          </div>
-          <div class="home-indicator"></div>
-        </article>
-      </div>
-    </section>
-
-    <section class="feature-grid" id="features" aria-label="Features">
-      <article class="feature-card"><div class="round-icon">📋</div><h3>Create Requests & Reports</h3><p>Submit issues, request documentation, and track your communication with your landlord.</p></article>
-      <article class="feature-card"><div class="round-icon">📷</div><h3>Capture & Store Evidence</h3><p>Take photos, add notes, and keep all your important evidence in one secure place.</p></article>
-      <article class="feature-card"><div class="round-icon">🛡</div><h3>Know Your Rights</h3><p>Access clear, state-specific tenant rights information and helpful resources.</p></article>
-      <article class="feature-card"><div class="round-icon">🔒</div><h3>Private & Secure</h3><p>All data is stored locally on your device. You’re in control, always.</p></article>
-    </section>
-
-    <div class="tagline">🛡 Built for Tenants. Backed by Your Right to a Safe, Habitable Home.</div>
-  </main>
-
-  <footer>
-    <div class="footer-content">
-        <p>
-            © 2026 Nova Works LLC. Tenant Receipts does not provide legal advice. 
-        </p>
-        <a href="https://www.facebook.com/profile.php?id=61586007257035"
-           target="_blank"
-           class="social-link">
-            <img src="Resources/fb_logo.png"
-                 alt="Facebook"
-                 class="footer-social-icon">
-        </a>
     </div>
+
+    <div class="showcase" aria-label="Nova Works product preview">
+      <div class="showcase-panel">
+        <div class="panel-top">
+          <div class="panel-title">Nova Works Product Hub</div>
+          <div class="status-pill">Active Build</div>
+        </div>
+
+        <div class="product-preview">
+          <article class="product-card">
+            <h3>Tenant Receipts</h3>
+            <p>
+              A tenant-focused mobile app for documenting housing issues,
+              capturing evidence, organizing records, and creating professional reports.
+            </p>
+            <a class="btn btn-primary" href="tenant-receipts.html">Open Product Page</a>
+          </article>
+
+          <div class="mini-row">
+            <div class="mini-stat">
+              <strong>01</strong>
+              <span>Product</span>
+            </div>
+            <div class="mini-stat">
+              <strong>Local</strong>
+              <span>First</span>
+            </div>
+            <div class="mini-stat">
+              <strong>More</strong>
+              <span>Coming</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-head" id="products">
+    <h2>Current and Future Products</h2>
+    <p>
+      Tenant Receipts is the first public product under Nova Works LLC.
+      This landing page gives you room to add more apps, tools, and services later.
+    </p>
+  </section>
+
+  <section class="product-grid">
+    <article class="app-card">
+      <div class="card-icon">🛡</div>
+      <h3>Tenant Receipts</h3>
+      <p>
+        A mobile application built to help tenants document issues, capture photos,
+        organize communication, and maintain clear records without providing legal advice.
+      </p>
+
+      <div class="tag-list">
+        <span class="tag">Documentation</span>
+        <span class="tag">Evidence Tracking</span>
+        <span class="tag">Tenant Records</span>
+        <span class="tag">Mobile App</span>
+      </div>
+
+      <a class="btn btn-primary" href="tenant-receipts.html">Go to Tenant Receipts</a>
+    </article>
+
+    <article class="coming-card">
+      <div class="card-icon">＋</div>
+      <h3>More Tools Coming Soon</h3>
+      <p>
+        Nova Works LLC is designed to grow beyond one app. Future tools can be added here
+        without changing the main business identity or rebuilding the entire website.
+      </p>
+
+      <div class="tag-list">
+        <span class="tag">Future Apps</span>
+        <span class="tag">Digital Tools</span>
+        <span class="tag">Nova Works</span>
+      </div>
+
+      <a class="btn btn-secondary" href="#approach">View Approach</a>
+    </article>
+  </section>
+
+  <section class="section-head" id="approach">
+    <h2>How Nova Works Builds</h2>
+    <p>
+      The goal is not to make bloated software. The goal is to build practical,
+      focused tools that solve specific problems cleanly.
+    </p>
+  </section>
+
+  <section class="principles-grid">
+    <article class="principle-card">
+      <h3>Purpose First</h3>
+      <p>
+        Every product should solve a defined problem and avoid unnecessary complexity.
+      </p>
+    </article>
+
+    <article class="principle-card">
+      <h3>Clean Experience</h3>
+      <p>
+        Interfaces should feel modern, organized, and easy to understand quickly.
+      </p>
+    </article>
+
+    <article class="principle-card">
+      <h3>Room to Grow</h3>
+      <p>
+        Nova Works LLC can expand into additional apps while keeping one consistent brand.
+      </p>
+    </article>
+  </section>
+
+  <section class="wide-cta">
+    <h2>Start with Tenant Receipts</h2>
+    <p>
+      View the first Nova Works LLC product and learn how it helps renters organize documentation.
+    </p>
+    <a class="btn btn-primary" href="tenant-receipts.html">View Tenant Receipts</a>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-content">
+    <p>
+      © 2026 Nova Works LLC. Practical digital tools built for real-world use.
+    </p>
+
+    <a href="https://www.facebook.com/profile.php?id=61586007257035"
+       target="_blank"
+       class="social-link"
+       aria-label="Open Facebook page">
+
+      <img src="Resources/fb_logo.png"
+           alt="Facebook"
+           class="footer-social-icon">
+
+    </a>
+  </div>
 </footer>
+
 </body>
 </html>
