@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy | Nova Works LLC</title>
+
+  <style>
+    :root {
+      --bg-deep: #0a1628;
+      --bg-main: #0b3159;
+      --bg-card: rgba(18, 43, 66, 0.76);
+      --bg-card-strong: rgba(10, 35, 62, 0.92);
+      --line: rgba(70, 144, 214, 0.34);
+      --line-strong: rgba(82, 170, 248, 0.55);
+      --blue: #4690d6;
+      --blue-bright: #4ab0ff;
+      --white: #ffffff;
+      --muted: #b9c4d4;
+      --soft: #dce9f8;
+      --green: #39d17c;
+      --gold: #ffc928;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: url("Resources/NW_Logo_TRP.png");
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 900px;
+      opacity: 0.08;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                   Oxygen, Ubuntu, Cantarell, sans-serif;
+      color: var(--soft);
+      background:
+        radial-gradient(circle at 68% 22%, rgba(70,144,214,.28), transparent 28%),
+        radial-gradient(circle at 15% 62%, rgba(42,122,194,.15), transparent 30%),
+        linear-gradient(135deg, #071222 0%, #08264a 52%, #063763 100%);
+      line-height: 1.55;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(7, 18, 34, .82);
+      border-bottom: 1px solid rgba(70, 144, 214, .18);
+      backdrop-filter: blur(14px);
+    }
+
+    nav {
+      width: min(1440px, calc(100% - 48px));
+      margin: 0 auto;
+      height: 96px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-weight: 800;
+      font-size: 1.45rem;
+      color: var(--white);
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(18px, 3vw, 38px);
+      list-style: none;
+      color: #d7e2ef;
+      font-weight: 500;
+    }
+
+    .nav-links a {
+      padding: 34px 0 21px;
+      border-bottom: 2px solid transparent;
+      transition: .2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--blue-bright);
+      border-bottom-color: var(--blue-bright);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 56px;
+      padding: 0 26px;
+      border-radius: 8px;
+      border: 1px solid var(--line-strong);
+      font-weight: 750;
+      transition: .2s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      color: var(--white);
+      background: linear-gradient(135deg, #4ab0ff, #318be6);
+      box-shadow: 0 16px 32px rgba(42, 140, 231, .22);
+    }
+
+    .btn-secondary {
+      color: var(--blue-bright);
+      background: rgba(6, 24, 44, .44);
+    }
+
+    .btn:hover { transform: translateY(-2px); filter: brightness(1.05); }
+
+    main {
+      width: min(1120px, calc(100% - 48px));
+      margin: 0 auto;
+      padding: 56px 0;
+    }
+
+    .legal-hero {
+      text-align: center;
+      padding: 38px 0 30px;
+    }
+
+    .eyebrow {
+      width: fit-content;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      border: 1px solid var(--line);
+      background: rgba(10, 35, 62, .5);
+      color: #dbe9fb;
+      padding: 10px 16px;
+      border-radius: 999px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      font-weight: 750;
+      font-size: .92rem;
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      color: var(--white);
+      font-size: clamp(2.6rem, 5vw, 4.5rem);
+      line-height: 1.02;
+      letter-spacing: -.055em;
+      margin-bottom: 18px;
+    }
+
+    .gradient-text {
+      display: block;
+      background: linear-gradient(180deg, #63bbff 0%, #368ce8 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      padding-bottom: 8px;
+    }
+
+    .hero-copy {
+      max-width: 760px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: clamp(1.05rem, 1.7vw, 1.25rem);
+    }
+
+    .legal-card {
+      border: 1px solid rgba(70,144,214,.28);
+      border-radius: 28px;
+      padding: clamp(24px, 5vw, 46px);
+      background: linear-gradient(180deg, rgba(18,43,66,.82), rgba(7,24,44,.74));
+      box-shadow: 0 28px 90px rgba(0,0,0,.32), inset 0 0 0 1px rgba(255,255,255,.03);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .legal-card::before {
+      content: "";
+      position: absolute;
+      inset: -90px -90px auto auto;
+      width: 230px;
+      height: 230px;
+      border-radius: 50%;
+      background: rgba(74,176,255,.18);
+      filter: blur(6px);
+    }
+
+    .legal-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .legal-content h2 {
+      color: var(--white);
+      font-size: clamp(1.9rem, 3vw, 2.5rem);
+      margin-bottom: 10px;
+      letter-spacing: -.03em;
+    }
+
+    .updated {
+      color: var(--blue-bright);
+      font-weight: 800;
+      margin-bottom: 26px;
+    }
+
+    .legal-content h3 {
+      color: var(--white);
+      font-size: 1.25rem;
+      margin: 30px 0 10px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(70,144,214,.18);
+    }
+
+    .legal-content p {
+      color: #c3cfdd;
+      margin-bottom: 16px;
+      font-size: 1.02rem;
+    }
+
+    .legal-content strong {
+      color: var(--white);
+    }
+
+    .legal-content ul {
+      margin: 12px 0 18px 22px;
+      color: #c3cfdd;
+    }
+
+    .legal-content li {
+      margin-bottom: 8px;
+      padding-left: 4px;
+    }
+
+    .notice-box {
+      border: 1px solid rgba(70,144,214,.26);
+      border-radius: 18px;
+      padding: 20px;
+      background: rgba(2,24,46,.48);
+      margin: 24px 0;
+    }
+
+    .legal-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    footer {
+      border-top: 1px solid rgba(70, 144, 214, .18);
+      text-align: center;
+      padding: 28px 18px;
+      color: #8ea3b9;
+      background: rgba(7, 18, 34, .55);
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .footer-social-icon {
+      width: 34px;
+      height: 34px;
+      max-width: 34px;
+      max-height: 34px;
+      min-width: 34px;
+      min-height: 34px;
+      object-fit: contain;
+      display: block;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+
+    .footer-social-icon:hover {
+      transform: scale(1.1);
+      opacity: 0.85;
+    }
+
+    .social-link {
+      display: inline-flex;
+      width: 34px;
+      height: 34px;
+      overflow: hidden;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @media (max-width: 1120px) {
+      .nav-links { display: none; }
+    }
+
+    @media (max-width: 720px) {
+      nav,
+      main { width: min(100% - 28px, 1440px); }
+      nav { height: 78px; }
+      .brand { font-size: 1.1rem; }
+      .nav-cta { display: none; }
+      .btn { width: 100%; }
+      main { padding-top: 32px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <nav aria-label="Primary navigation">
+    <a class="brand" href="index.html" aria-label="Nova Works LLC home">
+      <img src="Resources/NW_Logo_TRP.png" alt="Tenant Receipts Logo" class="logo" width="80" height="80">
+      <span>Nova Works LLC</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="tenant-receipts.html">Tenant Receipts</a></li>
+      <li><a class="active" href="privacy-policy.html">Privacy Policy</a></li>
+    </ul>
+
+    <a class="btn btn-primary nav-cta" href="tenant-receipts.html">View Tenant Receipts</a>
+  </nav>
+</header>
+
+<main>
+  <section class="legal-hero">
+    <div class="eyebrow">
+      <span>🔒</span>
+      <span>Tenant Receipts</span>
+    </div>
+
+    <h1>
+      Privacy Policy
+      <span class="gradient-text">User Control. Local First.</span>
+    </h1>
+
+    <p class="hero-copy">
+      This page explains how Tenant Receipts handles app data, permissions,
+      advertising, and user-generated records.
+    </p>
+  </section>
+
+  <section class="legal-card">
+    <div class="legal-content">
+      <h2>Privacy Policy</h2>
+      <p class="updated"><strong>Last Updated: December 01, 2025</strong></p>
+
+      <div class="notice-box">
+        <p>
+          NovaLeatherworks LLC, operating under the fictitious name <strong>"Nova Works LLC"</strong>,
+          ("Nova Works", "we", "our", or "the Company") operates the
+          <strong>Tenant Receipts</strong> mobile application. This Privacy Policy explains how
+          your information is handled.
+        </p>
+      </div>
+
+      <h3>1. Data Handling</h3>
+      <p>
+        The App is primarily designed to store user-generated information locally on
+        your device. Tenant Receipts and Nova Works LLC do not directly access,
+        review, or store your personal records, photos, notes, or generated documents
+        on company-controlled servers.
+      </p>
+
+      <h3>2. Information You Enter</h3>
+      <p>
+        Any photos, notes, names, or checklist items you enter remain <strong>entirely on your
+        device</strong>. We do not have access to your data and do not share it with anyone.
+      </p>
+
+      <h3>3. Local Storage Only</h3>
+      <p>
+        All data is stored locally. If you uninstall the App, your data is permanently deleted. The App
+        does not provide cloud backups, account login, or server storage.
+      </p>
+
+      <p>
+        Certain optional online features or future account-based functionality may
+        require limited communication with third-party services or cloud infrastructure.
+        Additional disclosures will be provided if those features become active.
+      </p>
+
+      <h3>4. Permissions</h3>
+      <ul>
+        <li><strong>Camera:</strong> used only to take photos for your documentation</li>
+        <li><strong>Storage:</strong> used only to save or select images when generating reports</li>
+      </ul>
+
+      <h3>5. Advertising &amp; Google AdMob</h3>
+      <p>
+        The App displays advertisements using the Google AdMob platform. AdMob may use the
+        <strong>Google Advertising ID</strong> to deliver, measure, and improve ad performance. This
+        identifier does <strong>not</strong> reveal your personal identity and may be reset or disabled
+        at any time through your device settings.
+      </p>
+
+      <p>
+        The App does <strong>not</strong> independently use or sell Advertising ID information outside
+        of services provided by Google AdMob and related Google Play Services.
+      </p>
+
+      <h3>6. Children’s Privacy</h3>
+      <p>
+        Because the App collects no personal data, it does not knowingly collect information from children.
+        Users under 13 should use the App with supervision.
+      </p>
+
+      <h3>7. Security</h3>
+      <p>
+        Your device’s own security features protect your information. We do not store, access, or manage
+        your data.
+      </p>
+
+      <h3>8. Changes</h3>
+      <p>
+        This Privacy Policy may be updated. Continued use of the App constitutes acceptance of the revised
+        policy.
+      </p>
+
+      <h3>9. Contact Us</h3>
+      <p>
+        NovaLeatherworks LLC (d/b/a "Nova Works LLC")<br>
+        Email: support@nova-worksllc.com<br>
+        Address: Pittsburgh, PA 15205
+      </p>
+
+      <div class="legal-actions">
+        <a class="btn btn-primary" href="tenant-receipts.html">Back to Tenant Receipts</a>
+        <a class="btn btn-secondary" href="index.html">Nova Works Home</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-content">
+    <p>
+      © 2026 Nova Works LLC. Practical digital tools built for real-world use.
+    </p>
+
+    <a href="https://www.facebook.com/profile.php?id=61586007257035"
+       target="_blank"
+       class="social-link"
+       aria-label="Open Facebook page">
+
+      <img src="Resources/fb_logo.png"
+           alt="Facebook"
+           class="footer-social-icon">
+
+    </a>
+  </div>
+</footer>
+
+</body>
+</html>
